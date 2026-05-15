@@ -1,0 +1,94 @@
+#include <stdio.h>
+
+//Função recursiva da torre
+//Torre irá andar para a direita 5 casas
+
+void moverTorre (int casas){
+    if (casas ==0) return; //parada da função recursiva
+        moverTorre (casas - 1); // loop do movimento 
+       
+        printf("Torre movimenta-se para direita %d casa(s)\n", casas);
+    
+}
+
+// Função recursiva do Bispo
+//Bispo irá andar na diagonal para cima e direita 5 casas
+void moverBispo (int casas){
+    if (casas==0) return; 
+        moverBispo (casas-1);
+    
+    for (int vertical = 1; vertical <= 1; vertical++) //loop para o movimento vertical
+    { for (int horizontal = 1; horizontal <= 1; horizontal++){ //loop para o movimento horizontal
+        }
+        
+        printf ("Bispo movimenta-se na diagonal(cima e direita) %d casa(s)\n", casas);
+    }
+    
+}
+
+//Função recursiva da Rainha
+//Rainha irá andar 8 casas para esquerda
+void moverRainha  (int casas){
+       if (casas == 0) return;
+        moverRainha (casas-1);
+    for (int i = 0; i <= 8; i++);
+    
+        printf("Rainha movimenta-se para a esquerda %d casa(s)\n", casas);
+      
+}
+  
+
+int main (){
+ 
+  
+
+    printf("Movimento do Bispo:\n");
+    moverBispo (5);
+    
+    printf("\nMovimento da Torre:\n");
+    moverTorre (5);
+
+    printf("\nMovimento da Rainha:\n");
+    moverRainha (8);
+   
+
+    printf("\nMovimento do Cavalo:\n");
+
+    int Movimentocavalo = 2;
+
+// loops aninhados para controlar o movimento do cavalo
+// O Cavalo precisa andar duas casas para cima e uma para a direita.
+// A ideia é separar o movimento em duas etapas:
+// primeiro o movimento vertical, depois o horizontal.
+
+    for (int etapa = 1; etapa <= 2; etapa++) {
+
+        // Na primeira etapa, o Cavalo sobe duas casas.
+        if (etapa == 1) {
+            int cima = 0;
+
+            while (cima < Movimentocavalo) {
+                printf("Cavalo se move para a cima %d casa(s)\n", cima+1);
+                cima++;
+
+                // Aqui eu uso continue só para mostrar o controle do fluxo:
+                // enquanto ainda não terminou de subir, ele continua no laço.
+                if (cima < Movimentocavalo) {
+                    continue;
+                }
+            }
+        }
+
+        // Na segunda etapa, o Cavalo anda uma casa para a direita.
+        if (etapa == 2) {
+            for (int direita = 0; direita < 1; direita++) {
+                printf("Cavalo se move para a direita 1 casa\n");
+
+                // Aqui eu uso break porque, depois de andar a única casa horizontal,
+                // não faz sentido continuar esse laço.
+                break;
+            }
+        }
+    }
+    return 0;
+}
